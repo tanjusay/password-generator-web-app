@@ -39,8 +39,14 @@ def colorize_password(password):
 
 
 def main():
-    st.set_page_config(page_title="Password Generator")
-    st.header("🎲 Password Generator")
+    st.set_page_config(
+    page_title="❄️ password generator web app",
+    layout="wide",
+    initial_sidebar_state="auto",
+    menu_items={},
+    footer=""
+)
+    st.header(" Password Generator 🐦")
 
     length = st.slider("Password Length", min_value=8, max_value=20, step=1, value=12)
     use_lowercase = st.checkbox("Include Lowercase Letters")
@@ -51,7 +57,7 @@ def main():
     if st.button("Generate Password"):
         password = generate_password(length, use_lowercase, use_uppercase, use_numbers, use_special)
         colorized_password = colorize_password(password)
-        st.markdown(f"Generated Password: <h5>{colorized_password}</h5>", unsafe_allow_html=True)
+        st.markdown(f"Generated Password: <h4>{colorized_password}</h4>", unsafe_allow_html=True)
     
 
 if __name__ == "__main__":
