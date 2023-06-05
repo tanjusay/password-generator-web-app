@@ -43,9 +43,15 @@ def main():
     page_title="❄️ password generator web app",
     layout="wide",
     initial_sidebar_state="auto",
-    menu_items={},
-    footer=""
+    menu_items={}
 )
+    hide_streamlit_style = """
+        <style>
+        footer {visibility: hidden;}
+        </style>
+        """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+ 
     st.header(" Password Generator 🐦")
 
     length = st.slider("Password Length", min_value=8, max_value=20, step=1, value=12)
