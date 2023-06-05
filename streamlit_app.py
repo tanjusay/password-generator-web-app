@@ -61,9 +61,12 @@ def main():
     use_special = st.checkbox("Include Special Characters")
     
     if st.button("Generate Password"):
-        password = generate_password(length, use_lowercase, use_uppercase, use_numbers, use_special)
-        colorized_password = colorize_password(password)
-        st.markdown(f"Generated Password: <h4>{colorized_password}</h4>", unsafe_allow_html=True)
+        try:
+            password = generate_password(length, use_lowercase, use_uppercase, use_numbers, use_special)
+            colorized_password = colorize_password(password)
+            st.markdown(f"Generated Password: <h4>{colorized_password}</h4>", unsafe_allow_html=True)
+        except Exception as e:
+            st.error(f"Error: {str(e)}")
     
 
 if __name__ == "__main__":
