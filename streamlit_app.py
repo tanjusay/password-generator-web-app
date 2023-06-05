@@ -29,7 +29,7 @@ def colorize_password(password):
     
     for char in password:
         if char.isdigit():
-            colorized_password += f"<span style='color: blue;'>{char}</span>"
+            colorized_password += f"<span style='color: red;'>{char}</span>"
         elif char in ["@", "#", "$", "&", "%", "<", ">"]:
             colorized_password += f"<span style='color: green;'>{char}</span>"
         else:
@@ -51,7 +51,7 @@ def main():
     if st.button("Generate Password"):
         password = generate_password(length, use_lowercase, use_uppercase, use_numbers, use_special)
         colorized_password = colorize_password(password)
-        st.markdown(f"Generated Password: {colorized_password}", unsafe_allow_html=True)
+        st.markdown(f"Generated Password: <h5>{colorized_password}</h5>", unsafe_allow_html=True)
     
 
 if __name__ == "__main__":
